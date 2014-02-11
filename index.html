@@ -14,11 +14,44 @@
     </head>
     <body>
 
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <h3 style="text-align:center;">Select a Saw</h3>
+		<p style="text-align:center;">
+			<a class="main-link" href="img/contractor-saw.jpg">Contractor Saw</a>
+			<a class="main-link" href="img/industrial-cabinet-saw.jpg">Industrial Saw</a>
+			<a class="main-link" href="img/professional-saw.jpg">Professional Saw</a>
+		</p>
+		
+		
+		<img id="main-img" src="img/contractor-saw.jpg"/>
+		
+		<style>
+		#main-img {
+			width:90%;
+			margin:20px auto;
+		}
+		</style>
 
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+			
+			
+			
+		<script>
+		 
+		$(document).ready(function() {
+			$(".main-link").on("click", function(e) {
+				var src = $(this).attr("href");
+				e.preventDefault();
+				$("#main-img").hide();
+				$("#main-img").on("load", function() {
+					$(this).fadeIn(500);
+				});
+				$("#main-img").attr("src", src);
+			});
+		});
+		
+		</script>
 
     </body>
 </html>
